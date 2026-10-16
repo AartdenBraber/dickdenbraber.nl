@@ -1,0 +1,15 @@
+# De server draait Linux. Alles met LF in de repo, zodat een deploy vanaf
+# Windows geen CRLF in de PHP-bestanden op de server zet.
+* text=auto eol=lf
+
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.svg text
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary

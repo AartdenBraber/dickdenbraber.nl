@@ -1,0 +1,33 @@
+# Lokale omgeving en geheimen
+.env
+.env.*
+!.env.example
+
+# Databasedumps en back-ups
+*.sql
+*.sql.gz
+*.zip
+*.tar
+*.tar.gz
+
+# Wat we van de server ophalen om te vergelijken, niet om te bewaren
+back-ups/
+
+# WordPress-spul dat WordPress zelf beheert, hoort niet in deze repo
+wp-admin/
+wp-includes/
+wp-content/plugins/
+wp-content/uploads/
+wp-content/cache/
+wp-content/upgrade/
+wp-config.php
+
+# Python
+__pycache__/
+*.pyc
+
+# Editors en systeem
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Zet bestanden uit het thema in de repo op de server.
+#
+#   scripts/deploy-thema inc/jetpack.php
+
+set -euo pipefail
+cd "$(dirname "$0")/.."
+exec python scripts/thema_deploy.py "$@"
