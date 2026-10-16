@@ -62,6 +62,10 @@ function dickdenbraber_infinite_scroll_render() {
 
 // Remove standard Jetpack functionality and replace it with something much better //
 function jp_remove_related() {
+	// Without Jetpack or its Related Posts module the class does not exist.
+	if ( ! class_exists( 'Jetpack_RelatedPosts' ) ) {
+		return;
+	}
 	$jprp = Jetpack_RelatedPosts::init();
 	$callback = array( $jprp, 'filter_add_target_to_dom' );
 	remove_filter( 'the_content', $callback, 40 );
@@ -74,7 +78,7 @@ add_filter('wp', 'jp_remove_related', 20);
 /* Create shortcode for displaying related posts anywhere in the post */
 function dickdenbraber_related_shortcode( $atts ) {
 
-	$related;
+	$related = array(); // stays empty without Jetpack, then all posts are random fillers
 	$amountOfPosts = 4; // How many related posts?
 
     if ( class_exists( 'Jetpack_RelatedPosts' ) && method_exists( 'Jetpack_RelatedPosts', 'init_raw' ) ) {
