@@ -127,7 +127,10 @@ add_action( 'widgets_init', 'dickdenbraber_widgets_init' );
 function dickdenbraber_scripts() {
 	wp_enqueue_style( 'dickdenbraber-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'dickdenbraber-javascript', get_template_directory_uri() . '/js/scripts.js', array(), '20151215', true );
+	// A plugin strips ?ver= and browsers keep scripts.js for a year, so bust the
+	// cache with our own parameter whenever the file changes.
+	$scripts_v = filemtime( get_template_directory() . '/js/scripts.js' );
+	wp_enqueue_script( 'dickdenbraber-javascript', get_template_directory_uri() . '/js/scripts.js?v=' . $scripts_v, array(), null, true );
 
 	wp_enqueue_script( 'dickdenbraber-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 

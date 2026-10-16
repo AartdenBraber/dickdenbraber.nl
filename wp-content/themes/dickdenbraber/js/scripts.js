@@ -639,6 +639,17 @@ function addHomepageFunctionality() {
 	     		mouseDrag: false
 			});
 
+			// autoHeight measures once, at init. Raleway loads async and the
+			// lazy images come later, so the content grows past that height and
+			// the button at the bottom got cut off. Measure again once they are in.
+			var refreshOwl = function() {
+				$owl.trigger('refresh.owl.carousel');
+			};
+			$(window).on('load', refreshOwl);
+			$(document).on('lazyloaded', refreshOwl);
+			if( document.fonts && document.fonts.ready )
+				document.fonts.ready.then(refreshOwl);
+
 			var $picker = $('.category-picker');
 			$picker.click(function() {
 				$owl.find('.owl-dot:first-child').trigger('click');
