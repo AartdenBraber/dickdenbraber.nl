@@ -64,7 +64,7 @@
 				</ul>
 			</div>
 		</div><!-- .three-cols -->
-		<small>&copy; 2009 - <?php echo date('Y'); ?> <?php bloginfo( 'name' ); ?>, website door <a href="https://aartdenbraber.nl">Den Braber Webdesign</a></small>
+		<small>&copy; 2009 - <?php echo date('Y'); ?> <?php bloginfo( 'name' ); ?>, website door <a href="https://prosum.dev">Prosum Development</a></small>
 
 	</div>
 
